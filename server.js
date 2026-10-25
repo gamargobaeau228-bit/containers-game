@@ -4,12 +4,12 @@ const path = require('path');
 const Database = require('better-sqlite3');
 
 // ---------- Настройки (через переменные окружения) ----------
-const BOT_TOKEN = process.env.BOT_TOKEN || '';          // токен от @BotFather
+const BOT_TOKEN = process.env.8775016272:AAH8-m0yRKYtchh5MsiMF1nkG56hc3Ai_8g || '';          // токен от @BotFather
 const BOT_USERNAME = process.env.BOT_USERNAME || '';    // username бота без @
 const APP_NAME = process.env.APP_NAME || '';            // короткое имя Mini App из /newapp
 const PORT = process.env.PORT || 3000;
 const DB_PATH = process.env.DB_PATH || 'game.db';
-const DEV = !BOT_TOKEN; // без токена работает тестовый режим (только для компьютера)
+const DEV = !8775016272:AAH8-m0yRKYtchh5MsiMF1nkG56hc3Ai_8g; // без токена работает тестовый режим (только для компьютера)
 
 const START_COINS = 1000;
 const REF_BONUS = 500;
