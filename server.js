@@ -5,16 +5,16 @@ const Database = require('better-sqlite3');
 
 // ---------- Настройки (через переменные окружения) ----------
 const BOT_TOKEN = process.env.8775016272:AAH8-m0yRKYtchh5MsiMF1nkG56hc3Ai_8g || '';          // токен от @BotFather
-const BOT_USERNAME = process.env.BOT_USERNAME || '';    // username бота без @
+const BOT_USERNAME = process.env.CONTAINER || '';    // username бота без @
 const APP_NAME = process.env.APP_NAME || '';            // короткое имя Mini App из /newapp
 const PORT = process.env.PORT || 3000;
 const DB_PATH = process.env.DB_PATH || 'game.db';
 const DEV = !8775016272:AAH8-m0yRKYtchh5MsiMF1nkG56hc3Ai_8g; // без токена работает тестовый режим (только для компьютера)
 
-const START_COINS = 1000;
-const REF_BONUS = 500;
-const FREE_COOLDOWN_MS = 4 * 60 * 60 * 1000; // бесплатный контейнер раз в 4 часа
-const MAX_OFFLINE_HOURS = 12;                // сколько часов копится доход без захода
+const START_COINS = 1500;
+const REF_BONUS = 5000;
+const FREE_COOLDOWN_MS = 1 * 60 * 60 * 1000; // бесплатный контейнер раз в 1 час
+const MAX_OFFLINE_HOURS = 999;                // сколько часов копится доход без захода
 
 // ---------- КОНТЕНТ: меняйте тему здесь ----------
 // value = цена предмета. Продажа = 50% цены. Доход в час = value / 50.
@@ -27,7 +27,7 @@ const ITEMS = [
   { id: 'camera',  name: 'Камера',       emoji: '📷', rarity: 'uncommon',  value: 300 },
   { id: 'laptop',  name: 'Ноутбук',      emoji: '💻', rarity: 'rare',      value: 800 },
   { id: 'console', name: 'Консоль',      emoji: '🎮', rarity: 'rare',      value: 1200 },
-  { id: 'drone',   name: 'Дрон',         emoji: '🚁', rarity: 'rare',      value: 1500 },
+  { id: 'drone',   name: 'Дрон',         emoji: '🚁', rarity: 'epic',      value: 1500 },
   { id: 'car',     name: 'Спорткар',     emoji: '🏎️', rarity: 'epic',      value: 5000 },
   { id: 'diamond', name: 'Алмаз',        emoji: '💎', rarity: 'epic',      value: 8000 },
   { id: 'crown',   name: 'Корона',       emoji: '👑', rarity: 'legendary', value: 30000 },
@@ -36,9 +36,9 @@ const ITEMS = [
 
 // Шансы выпадения редкости (в условных долях, нормализуются автоматически)
 const CONTAINERS = {
-  basic:     { name: 'Обычный контейнер',     emoji: '📦', price: 100,  weights: { common: 70, uncommon: 24, rare: 5,  epic: 0.5, legendary: 0.02 } },
-  rare:      { name: 'Редкий контейнер',      emoji: '🧰', price: 500,  weights: { common: 35, uncommon: 40, rare: 20, epic: 4.5, legendary: 0.1 } },
-  legendary: { name: 'Легендарный контейнер', emoji: '🏆', price: 2500, weights: { common: 10, uncommon: 35, rare: 40, epic: 14,  legendary: 1 } },
+  basic:     { name: 'Обычный контейнер',     emoji: '📦', price: 100,  weights: { common: 60, uncommon: 30, rare: 5,  epic: 1, legendary: 1 } },
+  rare:      { name: 'Редкий контейнер',      emoji: '🧰', price: 500,  weights: { common: , uncommon: 50, rare: 30, epic: 15, legendary: 2.5 } },
+  legendary: { name: 'Легендарный контейнер', emoji: '🏆', price: 2000, weights: { common: 0, uncommon: , rare: 60, epic: 35,  legendary: 5 } },
 };
 // ---------------------------------------------------
 
